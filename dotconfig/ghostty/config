@@ -1,0 +1,5 @@
+font-family = "JetBrainsMonoNL Nerd Font Propo"
+font-style = Bold
+bold-is-bright = "true"
+theme = fan-custom-theme
+confirm-close-surface = "false"

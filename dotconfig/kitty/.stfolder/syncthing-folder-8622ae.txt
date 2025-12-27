@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: pps44-efdfs
+created: 2025-11-12T11:53:48-07:00

@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: bvksr-fl9i7
+created: 2025-05-08T10:24:59-07:00

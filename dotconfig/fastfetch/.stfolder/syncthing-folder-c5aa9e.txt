@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: aucut-eaaim
+created: 2025-05-12T14:03:31-07:00

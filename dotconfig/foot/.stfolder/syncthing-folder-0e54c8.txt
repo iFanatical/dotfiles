@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: wdp3u-tgd75
+created: 2025-10-04T01:14:14-07:00

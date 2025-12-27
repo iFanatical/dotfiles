@@ -1,0 +1,608 @@
+@define-color critical #f84d51;
+@define-color warning #fdbb39;
+@define-color fgcolor #efefef;
+@define-color bgcolor #282a33;
+@define-color bgcolor2 #1d1f21;
+@define-color alert #fdbb39;
+@define-color empty #8a8d91;
+@define-color fg_alt #fdbb39;
+@define-color hover #6ac7f2;
+@define-color hover-red #db7d3b;
+
+/* black */
+@define-color black #282c34;
+@define-color black-bright #3f444a;
+
+/* red */
+@define-color red #fc5353;
+@define-color red-bright #db7d3b;
+
+/* green */
+@define-color green #8bbf48;
+@define-color green-bright #9abc6e;
+
+/* yellow */
+@define-color yellow #db7d3b;
+@define-color yellow-bright #ecbe7b;
+
+/* blue */
+@define-color blue #51afef;
+@define-color blue-bright #5294e2;
+
+/* magenta */
+@define-color magenta #c678dd;
+@define-color magenta-bright #a9a1e1;
+
+/* cyan */
+@define-color cyan #00c8ff;
+@define-color cyan-bright #46d9ff;
+
+/* white */
+@define-color white #efefef;
+@define-color white-bright #bcbcbc;
+
+* {
+    font-family: JetBrainsMonoNL Nerd Font Propo;
+    font-size: 14px;
+    font-weight: Bold;
+    margin: 0 0 0 0;
+}
+
+window#waybar {
+    background-color: rgba(40, 42, 51, 0.9);
+    color: @cyan-bright;
+    border-radius: 0px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+.modules-left, .modules-center, .modules-right {
+    background-color: transparent;
+    padding: 0 10px 0 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+}
+
+.modules-left {
+    border-top-color: @cyan-bright;
+}
+
+.modules-center {
+    border-top-color: @cyan-bright;
+}
+
+.modules-right {
+    border-top-color: @cyan-bright;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#workspaces button.empty {
+    background-color: transparent;
+    color: @empty;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: @white;
+}
+
+#workspaces button.urgent {
+    color: @critical;
+    background-color: transparent;
+}
+
+#workspaces button.special {
+    background-color: transparent;
+    color: @magenta-bright;
+}
+
+#workspaces button.visible {
+    background-color: transparent;
+    color: @white;
+}
+
+#workspaces button.focused {
+    background-color: transparent;
+}
+
+#workspaces button.active {
+    background-color: transparent;
+    color: @cyan-bright;
+}
+
+#workspaces button:hover {
+    color: @hover;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+}
+
+tooltip {
+    background-color: alpha(@bgcolor, 0.8);;
+    border: 2px solid @cyan-bright;
+    border-radius: 20px
+}
+
+tooltip label {
+    color: @fgcolor;
+}
+
+#mode {
+    background-color: transparent;
+}
+
+#mpd {
+    padding: 0 4px;
+    color: @fgcolor;
+}
+
+#workspaces {
+    margin: 0 4px;
+}
+
+#clock {
+    background-color: transparent;
+    color: @white;
+}
+
+#clock:hover {
+    background-color: transparent;
+    color: @hover;
+}
+
+#battery {
+    background-color: transparent;
+    color: @green;
+}
+
+#battery.full {
+    background-color: transparent;
+    color: @cyan-bright;
+}
+
+@keyframes charging {
+    to {
+ background-color: @cyan-bright;
+ color: @black;
+    }
+}
+
+#battery.charging {
+    background-color: transparent;
+    color: @cyan-bright;
+    animation-name: charging;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes critical {
+    to {
+ background-color: @red;
+ color: @black;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: transparent;
+    color: @red;
+    animation-name: critical;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes warning {
+    to {
+ background-color: @yellow;
+ color: @black;
+    }
+}
+
+#battery.warning {
+    background-color: transparent;
+    color: @yellow;
+    animation-name: warning;
+    animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: transparent;
+}
+
+#cpu {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#cpu:hover {
+    background-color: transparent;
+    min-width: 0;
+    color: @hover;
+}
+
+#memory {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 4px 0 4px;
+    color: @magenta;
+}
+
+#memory:hover {
+    background-color: transparent;
+    min-width: 0;
+    color: @hover;
+}
+
+#custom-gpu {
+    background-color: transparent;
+    color: @green;
+    margin: 0 4px 0 4px;
+    min-width: 0;
+}
+
+#custom-gpu:hover {
+    background-color: transparent;
+    min-width: 0;
+    color: @hover;
+}
+
+#disk {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 4px 0 4px;
+    color: @yellow;
+}
+
+#disk:hover {
+    background-color: transparent;
+    min-width: 0;
+    color: @hover;
+}
+
+#backlight {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+}
+ 
+#network {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#network:hover {
+    background-color: transparent;
+    color: @hover;
+}
+
+#network.disconnected {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @red;
+}
+
+#network.disconnected:hover {
+    background-color: transparent;
+    color: @hover;
+}
+
+#pulseaudio {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#pulseaudio:hover {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 4px 0 4px;
+    color: @hover;
+}
+
+#pulseaudio.muted {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 4px 0 4px;
+    color: @red;
+}
+
+#pulseaudio.muted:hover {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 4px 0 4px;
+    color: @hover-red;
+}
+
+#wireplumber {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @black;
+}
+
+#wireplumber.muted {
+    background-color: transparent;
+}
+
+#custom-kernel {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#custom-kernel:hover {
+    background-color: transparent;
+    color: @hover;
+}
+
+#custom-dunst {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 4px 0 4px;
+    color: @fg_alt;
+}
+
+#custom-notification {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#custom-notification:hover {
+    background-color: transparent;
+    color: @hover;
+}
+
+#custom-powermenu {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#custom-pacman {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    min-width: 45px;
+    margin: 0 4px 0 4px;
+    color: @magenta;
+}
+
+#custom-pacman:hover {
+    background-color: transparent;
+    color: @hover;
+}
+
+#custom-weather {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    min-width: 100px;
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#custom-separator {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: @white-bright;
+}
+
+#custom-copy {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    min-width: 125px;
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#custom-powerprofiles {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    min-width: 0;
+    margin: 0 0 0 0;
+    color: @magenta-bright;
+}
+
+#custom-powerprofiles:hover {
+    background-color: transparent;
+    color: @hover;
+}
+
+#custom-hyprshot {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    min-width: 0;
+    margin: 0 0 0 0;
+    color: @red;
+}
+
+#custom-hyprshot:hover {
+    background-color: transparent;
+    color: @hover;
+}
+
+#submap {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0 4px 0 4px;
+    color: @red;
+}
+
+#submap:hover {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: @hover;
+}
+
+#submap.dpms {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0 4px 0 4px;
+    color: @magenta-bright;
+}
+
+#submap.dpms:hover {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: @hover;
+}
+
+#submap.programs {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0 4px 0 4px;
+    color: @green;
+}
+
+#submap.programs:hover {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: @hover;
+}
+
+#submap.media {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0 4px 0 4px;
+    color: @magenta;
+}
+
+#submap.media:hover {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: @hover;
+}
+
+#submap.resize {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0 4px 0 4px;
+    color: @yellow;
+}
+
+#submap.resize:hover {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: @hover;
+}
+
+#submap.gapresize {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0 4px 0 4px;
+    color: @yellow-bright;
+}
+
+#submap.gapresize:hover {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: @hover;
+}
+
+#tray {
+    background-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    padding: 0 0 0 0;
+    margin: 0 4px 0 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: transparent;
+}
+
+#idle_inhibitor {
+    background-color: transparent;
+}
+
+#idle_inhibitor.activated {
+    background-color: transparent;
+    color: #2d3436;
+}
+
+#language {
+    background: transparent;
+    min-width: 75px;
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#language:hover {
+    background: transparent;
+    color: @hover;
+    min-width: 75px;
+}
+
+#keyboard-state {
+    background: transparent;
+    color: @cyan-bright;
+    padding: 0 0 0 0;
+    margin: 0 4px 0 4px;
+    min-width: 0;
+}
+
+#keyboard-state > label {
+    padding: 0 0 0 0;
+    margin: 0 4px 0 4px;
+    color: @cyan-bright;
+}
+
+#keyboard-state > label.locked {
+    background: transparent;
+    color: @white;
+}
+
+#scratchpad {
+    background: transparent;
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 0px;
+    background-color: @black-bright;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 0px;
+    background-color: @cyan-bright;
+}

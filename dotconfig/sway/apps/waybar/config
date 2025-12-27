@@ -1,0 +1,306 @@
+{
+    "height": 28,
+    "spacing": 2,
+    "reload_style_on_change": true,
+    "output": ["DP-2"],
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/space",
+        "sway/workspaces",
+        "sway/window"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "custom/notification",
+        "custom/space",
+        "custom/kernel",
+        "custom/space",
+        "custom/pacman",
+        "custom/space",
+        "cpu",
+        "custom/space",
+        "memory",
+        "custom/space",
+        "disk",
+        "custom/space",
+        "pulseaudio",
+        "custom/space",
+        "network",
+        "custom/space",
+        "sway/language",
+        "custom/space",
+        "clock",
+        "custom/space",
+        "tray",
+        "custom/space"
+    ],
+    // Modules configuration
+    "sway/workspaces": {
+        "spacing": 12,
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "show-special": true,
+        "persistent-workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+            "6": [],
+            "7": [],
+            "9": [],
+            "9": [],
+            "10": []
+		},
+        "format": "{name}",
+        "format-icons": {
+            "1": " ",
+            "2": " ",
+            "3": " ",
+            "4": " ",
+            "5": "󰢹 ",
+            "6": " ",
+            "7": " ",
+            "8": " ",
+            "9": " ",
+            "10": " ",
+            "urgent": " ",
+            //"focused": " ",
+            "default": " ",
+            //"special": " "
+            "special": "  "
+        }
+    },
+    "sway/mode": {
+        "format": "{}",
+        "on-click": "hyprctl dispatch submap reset",
+        "always-on": true,
+        "default-submap": "global",
+        "tooltip": false
+    },
+    "sway/window": {
+        "format": " {title}",
+        "max-length": 35,
+        "separate-outputs": true
+    },
+    "sway/language": {
+	    "format": "  Kbd: {}",
+        "format-en": "US",
+        "tooltip": true
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 6,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "  {:%I:%M %p}",
+        "format-alt": "  {:L%A, %B %d, %Y (%I:%M %p)}",
+        "tooltip-format": "\n<span size='10pt' font='Ubuntu Mono Bold'>{calendar}</span>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                        "months":     "<span color='#00b7eb'><b>{}</b></span>",
+                        "days":       "<span color='#bcbcbc'><b>{}</b></span>",
+                        "weeks":      "<span color='#c678dd'><b>W{}</b></span>",
+                        "weekdays":   "<span color='#db7d3b'><b>{}</b></span>",
+                        "today":      "<span color='#fc5353'><b><u>{}</u></b></span>"
+                        }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+    "cpu": {
+        "format": "  Cpu: {usage}%",
+        "tooltip": true,
+        "on-click": "kitty htop" 
+    },
+    "memory": {
+        "format": "  Mem: {}%",
+        //"format": "󰾆  {}%",
+        //"format": "󰓅  {}%",
+        "tooltip": true
+    },
+    "disk": {
+    "interval": 30,
+    "format": "🖴 Disk: {path} {percentage_free}% free",
+    "path": "/home",
+    "on-click": "thunar"
+    },
+    "temperature": {
+        "tooltip": false,
+        "critical-threshold": 80,
+        "format": "{icon}  {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "network": {
+        "tooltip": true,
+        "interval": 2,
+        "format-wifi": "󰤨 {essid} ({signalStrength}%)",
+        "format-ethernet": "󰌘 Net: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "󰌙 X.X.X.X/X",
+        "on-click": "nm-connection-editor"
+    },
+    "pulseaudio": {
+	    "format": "{icon}  Vol: {volume}%",
+	    "format-bluetooth": "{icon} 󰂰",
+	    "format-muted": "",
+	    "format-icons": {
+		"headphone": "",
+		"hands-free": "",
+		"headset": "",
+		"phone": "",
+		"portable": "",
+		"car": "",
+		"default": [
+			"", "", ""
+        ],
+		"ignored-sinks": [
+			"Easy Effects Sink"
+        ],
+	},
+	"scroll-step": 5.0,
+	"on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle",
+	"on-click-right": "pavucontrol -t 3",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec",
+	"tooltip": true,
+	"smooth-scrolling-threshold": 1
+    },
+    "mpris": {
+	"format": "DEFAULT: {player_icon} {dynamic}",
+	"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
+    "max-length": 35,
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	},
+	"ignored-players": ["firefox"]
+    },
+    "pulseaudio#mic": {
+        "tooltip": true,
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle-mic",
+        "on-click-right": "pavucontrol -t 4",
+        "tooltip-format": "{source_desc} | {source_volume}%",
+        "scroll-step": 5
+    },
+    "custom/kernel": {
+		"format": " {}",
+		"exec": "uname -r",
+        "tooltip": true,
+        "on-click": "hyprsysteminfo"
+    },
+    "custom/dunst": {
+        "exec": "~/.config/waybar/scripts/dunst.sh",
+        "on-click": "dunstctl set-paused toggle",
+        "restart-interval": 1,
+        "tooltip": false
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{} {icon}",
+        "format-icons":{
+          "notification":"󱅫",
+          "none": "",
+          "dnd-notification": " ",
+          "dnd-none": "󰂛",
+          "inhibited-notification": " ",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": " ",
+          "dnd-inhibited-none": " "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/wm": {
+        "exec": "echo $XDG_CURRENT_DESKTOP"
+    },
+    "custom/appmenu": {
+        "format": " 󰙀 ",
+        "on-click": "$HOME/.config/rofi/launchers/type-1/launcher.sh",
+        "tooltip": false
+    },
+    "custom/powermenu": {
+        "format": " ",
+        "on-click": "$HOME/.config/rofi/powermenu/type-2/powermenu.sh",
+        "tooltip": false
+    },
+    "custom/gpu": {
+        "format": " 󰓅  {}% ",
+        "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
+        "tooltip": false,
+        "interval": 5
+    },
+    "custom/pacman": {
+        "format": "󰏖  {}",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "kitty 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar", // update system
+        "signal": 8
+    },
+    "custom/weather": {
+        "exec": "${HOME}/.config/hypr/scripts/get_weather.sh Tucson+Arizona",
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600
+    },
+    "custom/copy": {
+		"format": " {}",
+        "exec": "copyq clipboard",
+        "tooltip": true,
+        "on-click": "copyq show",
+        "max-length": 15,
+        "interval": 5
+    },
+    "custom/separator": {
+        "format": "│",
+        "tooltip": false
+    },
+    "custom/space": {
+        "format": " ",
+        "tooltip": false
+    }
+}

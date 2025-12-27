@@ -1,0 +1,141 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "/home/fanatical/.config/i3status-rust/themes/fanatical.toml"
+
+[icons]
+icons = "awesome6"
+
+[icons.overrides]
+bell = "\uf0f3"
+bell-slash = "\uf1f6"
+cpu = "\uf2db"
+clock = "\uf0e17"
+memory_mem = "\uefc5"
+volume = [
+    "\uf026",
+    "\uf027",
+    "\uf028",
+]
+volume_muted = "\uf026 \uf00d"
+microphone = "\uf130"
+microphone_muted = "\uf131"
+net_down = "\u2b07"
+net_up = "\u2b06"
+
+[[block]]
+block = "focused_window"
+[block.theme_overrides]
+idle_bg = "#444b6a"
+idle_fg = "#acb0d0"
+info_bg = "#444b6a"
+info_fg = "#acb0d0"
+[block.format]
+full = " $title.str(max_w:25) |"
+short = " $title.str(max_w:10) |"
+
+[[block]]
+block = "custom"
+command = "echo -e ''"
+
+[[block]]
+block = "custom"
+command = "language.sh"
+interval = "once"
+format = "{}  $text.pango-str()"
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#f7768e"
+info_bg = "#1a1b26"
+info_fg = "#f7768e"
+
+
+[[block]]
+block = "custom"
+command = "echo -e │"
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#acb0d0"
+
+[[block]]
+block = "custom"
+command = "uname -r"
+interval = "once"
+format = "{} $text.pango-str()"
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#ad8ee6"
+info_bg = "#1a1b26"
+info_fg = "#ad8ee6"
+
+
+[[block]]
+block = "custom"
+command = "echo -e │"
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#acb0d0"
+
+[[block]]
+block = "memory"
+format = "$icon  $mem_used.eng(w:4)/$mem_total.eng(w:4)"
+format_alt = "$icon_swap $swap_used_percents.eng(w:2)"
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#ff9e64"
+info_bg = "#1a1b26"
+info_fg = "#ff9e64"
+[[block.click]]
+button = "left"
+cmd = "kitty -e btop"
+
+[[block]]
+block = "custom"
+command = "echo -e │"
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#acb0d0"
+
+[[block]]
+block = "sound"
+format = "$icon  {$volume|}"
+max_vol = 100
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#7aa2f7"
+info_bg = "#1a1b26"
+info_fg = "#7aa2f7"
+[[block.click]]
+button = "left"
+cmd = "$HOME/.local/bin/Volume.sh --toggle"
+[[block.click]]
+button = "right"
+cmd = "pavucontrol -t 3"
+
+[[block]]
+block = "custom"
+command = "echo -e │"
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#acb0d0"
+
+[[block]]
+block = "time"
+interval = 1
+format = "$icon  $timestamp.datetime(f:'%r')"
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#0db9d7"
+info_bg = "#1a1b26"
+info_fg = "#0db9d7"
+[[block.click]]
+button = "left"
+cmd = "notify-date.sh"
+
+[[block]]
+block = "custom"
+command = "echo -e │"
+[block.theme_overrides]
+idle_bg = "#1a1b26"
+idle_fg = "#acb0d0"
+

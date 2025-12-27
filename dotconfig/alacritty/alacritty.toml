@@ -1,0 +1,64 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "JetBrainsMonoNL Nerd Font Propo"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMonoNL Nerd Font Propo"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrainsMonoNL Nerd Font Propo"
+style = "Bold Italic"
+
+[font.normal]
+family = "JetBrainsMonoNL Nerd Font Propo"
+style = "Bold"
+
+[font.offset]
+x = 0
+y = 1
+
+[scrolling]
+history = 5000
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.normal]
+black = "#282a33"
+red = "#fc5353"
+green = "#8bbf48"
+yellow = "#db7d3b"
+blue = "#51afef"
+magenta = "#c678dd"
+cyan = "#00c8ff"
+white = "#efefef"
+
+[colors.bright]
+black = "#3f444a"
+red = "#db7d3b"
+green = "#9abc6e"
+yellow = "#ecbe7b"
+blue = "#5294e2"
+magenta = "#a9a1e1"
+cyan = "#46d9ff"
+white = "#bcbcbc"
+
+[colors.cursor]
+cursor = "#00b7eb"
+text = "CellBackground"
+
+[colors.primary]
+background = "#282a33"
+foreground = "#efefef"
+bright_foreground = "#00b7eb"
+
+[colors.selection]
+background = "#4c566a"
+text = "CellForeground"

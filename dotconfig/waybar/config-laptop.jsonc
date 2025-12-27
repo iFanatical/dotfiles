@@ -1,0 +1,201 @@
+{
+    "layer": "top",
+    "height": 20,
+    "spacing": 4, 
+    "reload_style_on_change": true,
+    "output": ["eDP-1"],
+    "modules-left": [
+	"custom/space",
+	"custom/launcher",
+	"hyprland/workspaces",
+	"hyprland/window"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+	"hyprland/submap",
+	"custom/separator",
+	"custom/kernel",
+	"custom/separator",
+	"memory",
+	"custom/separator",
+	"wireplumber",
+	"custom/separator",
+	"clock",
+	"custom/separator",
+	"group/tray-drawer"
+    ],
+    "hyprland/workspaces": {
+        "spacing": 0,
+        "disable-scroll": true,
+        "all-outputs": false,
+        "warp-on-scroll": false,
+        "show-special": true,
+        "persistent-workspaces": {
+            "eDP-1": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "r" ]
+        },
+        "format": "{name}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "10": "",
+            "urgent": "",
+            "focused": "",
+            "default": "",
+            "r": "󰢹",
+            "c": "",
+            "d": ""
+        }
+    },
+    "hyprland/submap": {
+        "format": " {}",
+        "on-click": "hyprctl dispatch submap reset",
+        "always-on": true,
+        "default-submap": "global",
+        "tooltip": false
+    },
+    "hyprland/window": {
+        "format": " {title} ",
+        "separate-outputs": true
+    },
+    "hyprland/language": {
+	"format": " Kbd: {}",
+        "format-en": "US",
+        "tooltip": true
+    },
+    "clock": {
+	"interval": 1,
+	"format": "󰸗 {:%r}",
+	"format-alt": "{:%B %d, %Y}",
+	"max-length": 25,
+	"tooltip-format": "{:%h %d, %Y}"
+    },
+    "cpu": {
+	"format": " {}%",
+	"interval": 5,
+        "on-click": "foot -e btop"
+    },
+    "memory": {
+	"format": " {used}G / {total}G",
+	"interval": 5,
+        "on-click": "$TERMINAL -e btop",
+	"tooltip": true,
+	"tooltip-format": "{percentage}%"
+    },
+    "power-profiles-daemon": {
+	"format": "{icon} {profile}",
+	"format-icons": {
+	    "default": "",
+	    "performance": "",
+	    "balanced": "",
+	    "power-saver": ""
+	}
+    },
+    "wireplumber": {
+	"format": "{icon} {volume}% {format_source}",
+	"format-icons": {
+	    "default": [ "", "", "" ]
+	},
+	"format-muted": " muted {format_source}",
+	"format-source": " {volume}%",
+	"format-source-muted": " muted",
+	"scroll-step": 5,
+	"on-scroll-up": "$SCRIPTS/Volume.sh --inc",
+	"on-scroll-down": "$SCRIPTS/Volume.sh --dec",
+	"on-click": "$SCRIPTS/Volume.sh --toggle",
+	"on-click-right": "pavucontrol"
+    },
+    "custom/kernel": {
+	"format": "{}",
+	"exec": "$SCRIPTS/kernel.sh",
+	"on-click": "hyprsysteminfo",
+	"tooltip": false,
+	"interval": "once"
+    },
+    "custom/powerprofiles": {
+        "format": "{}",
+	"exec": "$HOME/.local/bin/power-profiles-icons.sh",
+        "on-click": "$HOME/.local/bin/power-profiles.sh && pkill -SIGRTMIN+1 waybar",
+        "signal": 1,
+        "tooltip": false
+    },
+    "custom/search": {
+        "format": "",
+        "on-click": "fsearch.sh",
+        "tooltip": false
+    },
+    "custom/system-stats": {
+        "format": "{}",
+        "exec": "$SCRIPTS/system-stats.sh",
+        "on-click": "foot -e btop",
+        "tooltip": false,
+        "interval": 5
+    },
+    "custom/time": {
+        "format": "{}",
+        "exec": "$SCRIPTS/time.sh",
+        "on-click": "$SCRIPTS/notify-date.sh",
+        "tooltip": false,
+        "interval": 1
+    },
+    "custom/volume": {
+        "format": "{}",
+        "exec": "$SCRIPTS/volumeget.sh",
+        "on-click": "pavucontrol",
+	"on-scroll-up": "$SCRIPTS/volumeinc.sh",
+	"on-scroll-down": "$SCRIPTS/volumedec.sh",
+        "tooltip": false,
+	"signal": 11,
+        "interval": "once"
+    },
+    "custom/separator": {
+        "format": "│",
+        "tooltip": false
+    },
+    "custom/space": {
+        "format": " ",
+        "tooltip": false
+    },
+    "custom/launcher": {
+	"format": "󰌧",
+	"tooltip": true,
+	"tooltip-format": "Super+W",
+	"on-click": "fanos-menu"
+    },
+    "custom/expand": {
+        "tooltip": false,
+        "format": " ",
+        "on-click": "echo 'toggle'"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+    "group/tray-drawer": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/expand",
+	    "custom/space",
+	    "power-profiles-daemon",
+	    "custom/space",
+	    "custom/search",
+	    "custom/space",
+            "tray",
+	    "custom/space"
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "tray-hidden",
+            "click-to-reveal": false,
+            "transition-left-to-right": true
+        }
+    }
+}

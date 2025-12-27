@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: acnpj-gf3dg
+created: 2025-05-08T09:51:26-07:00

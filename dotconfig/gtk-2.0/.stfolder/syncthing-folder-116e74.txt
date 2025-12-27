@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: qlwt2-taczf
+created: 2025-05-08T08:16:57-07:00

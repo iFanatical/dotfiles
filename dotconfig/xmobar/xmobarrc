@@ -1,0 +1,14 @@
+Config {
+      overrideRedirect = False  
+    , font = "JetBrainsMonoNL Nerd Font Propo Bold 10"
+    , bgColor = "#1a1b26"
+    , fgColor = "#a9b1d6"
+    , position = TopSize C 100 24
+    , border = BottomB
+    , borderColor = "#ad8ee6"
+    , borderWidth = 2
+    , allDesktops = True
+    , persistent = True
+    , commands = [ Run XMonadLog ]
+    , template = "%XMonadLog%"
+    }

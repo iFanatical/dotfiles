@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: idf3p-gfgcz
+created: 2025-05-08T09:50:23-07:00

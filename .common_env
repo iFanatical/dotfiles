@@ -1,0 +1,28 @@
+# ~/.common_env
+
+export GTK_THEME="fan-custom-tokyonight"
+export SCRIPTS="/home/fanatical/.local/bin"
+export TERM="xterm-256color"
+export HISTCONTROL="ignoredups:erasedups"
+export EDITOR="nvim"
+export VISUAL="$TERMINAL -e nvim"
+export GTK_USE_PORTAL="1"
+export LS_COLORS="di=01;34:fi=00;37:ln=01;36:bd=01;33:ex=01;32"
+export XCURSOR_THEME="breeze-dark"
+export XCURSOR_SIZE="24"
+export PF_COL2="1"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.bin:/home/fanatical/.spicetify:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$PATH"
+export QT_QPA_PLATFORMTHEME="gtk3"
+export QT_SCALE_FACTOR="1"
+export TERMINAL="kitty"
+export LANG="en_US.UTF-8"
+export LC_COLLATE="C"
+export WINEPREFIX="$HOME/Games/wine"
+
+# XDG dirs
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_PICTURES_DIR="$HOME/Pictures"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:/usr/local/share:/usr/share"

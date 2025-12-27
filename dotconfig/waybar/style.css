@@ -1,0 +1,482 @@
+@define-color critical #f84d51;
+@define-color warning #fdbb39;
+@define-color fgcolor #acb4db;
+@define-color bgcolor #1a1b26;
+@define-color bgcolor2 #1d1f21;
+@define-color alert #fdbb39;
+@define-color empty #8a8d91;
+@define-color fg_alt #fdbb39;
+@define-color hover #6ac7f2;
+@define-color hover-red #db7d3b;
+@define-color ws-white #dddddd;
+/* black */
+@define-color black #32344a;
+@define-color black-bright #444b6a;
+
+/* red */
+@define-color red #f7768e;
+@define-color red-bright #ff7a93;
+
+/* green */
+@define-color green #9ece6a;
+@define-color green-bright #b9f27c;
+
+/* yellow */
+@define-color yellow #e0af68;
+@define-color yellow-bright #ff9e64;
+
+/* blue */
+@define-color blue #7aa2f7;
+@define-color blue-bright #7da6ff;
+
+/* magenta */
+@define-color magenta #ad8ee6;
+@define-color magenta-bright #bb9af7;
+
+/* cyan */
+@define-color cyan #449dab;
+@define-color cyan-bright #0db9d7;
+
+/* white */
+@define-color white #787c99;
+@define-color white-bright #acb0d0;
+
+* {
+    font-family: JetBrainsMonoNL Nerd Font Propo;
+    font-size: 12px;
+    font-weight: Bold;
+    margin: 0 0 0 0
+}
+
+#window {
+    background-color: alpha(@black-bright, 0.75);
+    color: @white-bright;
+    border-radius: 0px;
+}
+window#waybar {
+    background-color: @bgcolor;
+    color: @blue;
+    border-radius: 0px;
+}
+window#waybar.hidden {
+    opacity: 0.2;
+}
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+#workspaces button.empty {
+    background-color: transparent;
+    color: @white;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: @cyan;
+}
+
+#workspaces button.urgent {
+    color: @critical;
+    background-color: transparent;
+}
+
+#workspaces button.special {
+    background-color: transparent;
+    color: @ws-white;
+}
+
+#workspaces button.visible {
+    background-color: transparent;
+    box-shadow: inset 0 -2px @magenta;
+    color: @cyan;
+}
+
+#workspaces button.focused {
+    background-color: transparent;
+}
+
+#workspaces button.active {
+    background-color: transparent;
+    box-shadow: inset 0 -2px @magenta;
+    color: @cyan;
+}
+
+#workspaces button:hover {
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -2px @hover;
+}
+
+tooltip {
+    background-color: @bgcolor;
+    border: 2px solid @white-bright;
+    border-radius: 0
+}
+
+tooltip label {
+    color: @white-bright;
+}
+
+#battery {
+    background-color: transparent;
+    color: @green;
+    box-shadow: inset 0 -2px @green;
+}
+
+#battery.full {
+    background-color: transparent;
+    color: @cyan-bright;
+    box-shadow: inset 0 -2px @cyan-bright;
+}
+
+@keyframes charging {
+    to {
+ background-color: @cyan-bright;
+ color: @black;
+    }
+}
+
+#battery.charging {
+    background-color: transparent;
+    color: @cyan-bright;
+    animation-name: charging;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes critical {
+    to {
+ background-color: @red;
+ color: @black;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: transparent;
+    color: @red;
+    box-shadow: inset 0 -2px @red;
+    animation-name: critical;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes warning {
+    to {
+ background-color: @yellow;
+ color: @black;
+    }
+}
+
+#battery.warning {
+    background-color: transparent;
+    color: @yellow;
+    box-shadow: inset 0 -2px @yellow;
+    animation-name: warning;
+    animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: transparent;
+}
+
+#clock {
+    background-color: transparent;
+    color: @cyan-bright;
+    box-shadow: inset 0 -2px @cyan-bright;
+}
+
+#clock:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#cpu {
+    background-color: transparent;
+    color: @green;
+    margin: 0 0 0 0;
+    min-width: 0;
+    box-shadow: inset 0 -2px @green;
+}
+
+#cpu:hover {
+    background-color: transparent;
+    min-width: 0;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#memory {
+    background-color: transparent;
+    color: @yellow-bright;
+    margin: 0 0 0 0;
+    min-width: 0;
+    box-shadow: inset 0 -2px @yellow-bright;
+}
+
+#memory:hover {
+    background-color: transparent;
+    min-width: 0;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#power-profiles-daemon {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 0 0 0;
+    color: @green;
+    box-shadow: inset 0 -2px @green;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 0 0 0;
+    color: @green;
+    box-shadow: inset 0 -2px @green;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 0 0 0;
+    color: @yellow;
+    box-shadow: inset 0 -2px @yellow;
+}
+
+#power-profiles-daemon.performance {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 0 0 0;
+    color: @red;
+    box-shadow: inset 0 -2px @red;
+}
+
+#power-profiles-daemon:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#wireplumber {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 0 0 0;
+    color: @blue;
+    box-shadow: inset 0 -2px @blue;
+}
+
+#wireplumber:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#custom-search {
+    background-color: transparent;
+    color: @red;
+    margin: 0 4px 0 4px;
+    box-shadow: inset 0 -2px @red;
+}
+
+#custom-search:hover {
+    background-color: transparent;
+    min-width: 0;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#custom-system-stats {
+    background-color: transparent;
+    color: @green;
+    margin: 0 4px 0 4px;
+    min-width: 0;
+    box-shadow: inset 0 -2px @green;
+}
+
+#custom-system-stats:hover {
+    background-color: transparent;
+    min-width: 0;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+ 
+#custom-kernel {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @magenta;
+    box-shadow: inset 0 -2px @magenta;
+}
+
+#custom-kernel:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#custom-powerprofiles {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 0 0 0;
+    color: @yellow-bright;
+    box-shadow: inset 0 -2px @yellow-bright;
+}
+
+#custom-powerprofiles:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#custom-rec {
+    background-color: transparent;
+    min-width: 0;
+    margin: 0 0 0 0;
+    color: @yellow;
+    box-shadow: inset 0 -2px @yellow;
+}
+
+#custom-rec:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#custom-time {
+    background-color: transparent;
+    color: @white-bright;
+    box-shadow: inset 0 -2px @white;
+}
+
+#custom-time:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#custom-volume {
+    background-color: transparent;
+    color: @blue;
+}
+
+#custom-volume:hover {
+    background-color: transparent;
+    color: @hover;
+}
+
+#custom-separator {
+    background-color: transparent;
+    color: @white;
+}
+
+#submap {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @red;
+    box-shadow: inset 0 -2px @red;
+}
+
+#submap:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#submap.dpms {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @magenta-bright;
+    box-shadow: inset 0 -2px @magenta-bright;
+}
+
+#submap.dpms:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#submap.programs {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @green;
+    box-shadow: inset 0 -2px @green;
+}
+
+#submap.programs:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#submap.media {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @yellow;
+    box-shadow: inset 0 -2px @yellow;
+}
+
+#submap.media:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#submap.resize {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @magenta;
+    box-shadow: inset 0 -2px @magenta;
+}
+
+#submap.resize:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#submap.gapresize {
+    background-color: transparent;
+    margin: 0 4px 0 4px;
+    color: @yellow-bright;
+    box-shadow: inset 0 -2px @yellow-bright;
+}
+
+#submap.gapresize:hover {
+    background-color: transparent;
+    color: @hover;
+    box-shadow: inset 0 -2px @hover;
+}
+
+#tray {
+    background-color: transparent;
+    padding: 0 0 0 0;
+    margin: 0 4px 0 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: transparent;
+}
+

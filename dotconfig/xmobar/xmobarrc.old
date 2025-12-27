@@ -1,0 +1,32 @@
+Config {
+	font = "JetBrainsMonoNL Nerd Font Bold 12"
+	, bgColor = "#282a33"
+	, fgColor = "#51afef"
+	, position = TopH 20
+
+	, sepChar = "%"
+	, alignSep = "}{"
+	, template = %cpu% %memory% %disk% }{ %kernel% %date% %kbd%
+
+	, lowerOnStart = True
+	, hideOnStart = False
+	, allDesktops = True
+	, persistent = True
+
+	, commands = [
+		Run Com "echo" ["<fn=3>\xf099</fn>"] "messages" 3600
+
+		, Run Com "echo" ["View Notifications"]  "notify-log" 3600
+
+		, Run Com "echo" ["<fn=3>\xf17c</fn>"] "penguin" 3600
+
+		, Run Com ".local/bin/kernel.sh" [] "kernel" 36000
+
+		, Run Cpu ["-t", "<fn=2>\xf108</fn>  cpu: (<total>%)","-H","50","--high","red"] 20
+
+		, Run Memory ["-t", "<fn=2>\xf233</fn>  mem: <used>M (<usedratio>%)"] 20
+
+		, Run DiskU [("/home", "<fn=2>\xf0c7</fn>  hdd: <used> free")] [] 60
+
+		]
+	}
